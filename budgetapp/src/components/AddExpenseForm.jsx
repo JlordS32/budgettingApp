@@ -67,7 +67,7 @@ const AddExpenseForm = ({ budgets }) => {
 						required
 					>
 						{budgets
-							.sort((a, b) => a.createdAt - b.createdAt)
+							.sort((a, b) => b.createdAt - a.createdAt)
 							.map((budget) => {
 								return (
 									<option
