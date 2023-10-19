@@ -8,6 +8,9 @@ import Dashboard, {
 } from '../pages/Dashboard';
 import Error from '../pages/Error';
 import Main, { mainLoader } from '../layouts/Main';
+import ExpensesPage, { expensesLoader } from '../pages/ExpensesPage';
+
+// Library
 import { ToastContainer } from 'react-toastify';
 
 // Actions
@@ -26,6 +29,11 @@ const router = createBrowserRouter([
 				action: dashboardAction,
 				loader: dashboardLoader,
         errorElement: <Error />,
+			},
+			{
+				index: 'expenses',
+				element: <ExpensesPage />,
+				loader: expensesLoader,
 			},
 			{
 				path: 'logout',
