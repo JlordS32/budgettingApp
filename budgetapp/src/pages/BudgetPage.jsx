@@ -9,7 +9,11 @@ import AddExpenseForm from '../components/AddExpenseForm';
 import Table from '../components/Table';
 
 // helpers
-import { createExpense, deleteItem, getAllMatchingItems } from '../utility/helpers';
+import {
+	createExpense,
+	deleteItem,
+	getAllMatchingItems,
+} from '../utility/helpers';
 import { toast } from 'react-toastify';
 
 // loader
@@ -51,7 +55,7 @@ export async function budgetAction({ request }) {
 		}
 	}
 
-   if (_action === 'createExpense') {
+	if (_action === 'createExpense') {
 		try {
 			// create an expense
 			createExpense({
@@ -83,7 +87,10 @@ const BudgetPage = () => {
 				Overview
 			</h1>
 			<div className='flex-lg'>
-				<BudgetItem budget={budget} />
+				<BudgetItem
+					budget={budget}
+					showDelete={true}
+				/>
 				<AddExpenseForm budgets={[budget]} />
 			</div>
 			{expenses && expenses.length > 0 && (
