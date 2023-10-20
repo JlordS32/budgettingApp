@@ -9,7 +9,7 @@ import AddExpenseForm from '../components/AddExpenseForm';
 import Table from '../components/Table';
 
 // helpers
-import { deleteItem, getAllMatchingItems } from '../utility/helpers';
+import { createExpense, deleteItem, getAllMatchingItems } from '../utility/helpers';
 import { toast } from 'react-toastify';
 
 // loader
@@ -48,6 +48,22 @@ export async function budgetAction({ request }) {
 		} catch (err) {
 			toast.error('There was a problem deleting your expense.');
 			throw new Error('There was a problem deleting your expense.');
+		}
+	}
+
+   if (_action === 'createExpense') {
+		try {
+			// create an expense
+			createExpense({
+				name: values.newExpense,
+				amount: values.newExpenseAmount,
+				budgetId: values.newExpenseBudget,
+			});
+
+			return toast.success(`Expense: ${values.newExpense} created!`);
+		} catch (e) {
+			toast.error('There was a problem creating your expense.');
+			throw new Error('There was a problem creating your expense.');
 		}
 	}
 }
