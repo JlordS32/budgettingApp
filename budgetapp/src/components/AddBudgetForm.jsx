@@ -35,8 +35,8 @@ const AddBudgetForm = () => {
 						id='newBudget'
 						placeholder='e.g, Groceries'
 						ref={focusRef}
+					   required
 					/>
-					required
 				</div>
 				<div className='grid-xs'>
 					<label htmlFor='newBudgetAmount'>Amount</label>
